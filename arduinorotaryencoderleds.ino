@@ -28,7 +28,6 @@ bool errorStatus = false;
 
 void setup()
 {
-  // put your setup code here, to run once:
   pinMode(ROTARY_ENCODER_BUTTON_PIN, INPUT);
 
   pinMode(LED_BUILTIN, OUTPUT);
@@ -198,9 +197,9 @@ void serialPrintInfo(int currentPositionIndex, int currentRange)
   Serial.println(currentRange);
 }
 
-void renderLeds(int train_depart, int train_largeur, bool isRangeMode, bool error)
+void renderLeds(int startIndex, int range, bool isRangeMode, bool error)
 {
-  for (int j = train_depart; j < train_depart + train_largeur; j++)
+  for (int j = startIndex; j < startIndex + range; j++)
   {
 
     leds[j] = getLedColor(isRangeMode, error);
